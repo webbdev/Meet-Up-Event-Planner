@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet-Up Event Planner</title>
+  <!--[if lt IE 9]> 
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 
+  <![endif]-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="lib/css/bootstrap-datetimepicker.css">
+  <link rel="stylesheet" href="css/event.css">
+</head>
+<body ng-app="">
+ <!-- Header --> 
+  <header class="header">
+    <div class="mid-top">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="index.html">Meet-Up Event Planner</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> User Name <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="account.html">Account</a></li>
+                  <li><a href="events.html">Create Events</a></li>
+                  <li><a href="index.html">Sign Out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- Section Display_Event -->
+  <section id="myEvent">
+    <div class="display_event" ng-class="style_class">
+      <h1  ng-bind="event_title" id="view_title">Event Title</h1>
+      <div class="row">
+      	<div class="col-sm-12">
+      	  <label>EVENT TYPE:</label>
+      	  <p ng-bind="event_type" id="view_eventtype"></p>
+      	</div>
+      </div>
+      <div class="row">
+    	<div class="col-sm-12">
+    	  <label>HOST:</label>
+    	  <p><span ><small ng-bind="event_phone" id="view_phone"></small></span> &#160; <span id="view_host">{{event_host | uppercase}} </span></p>
+    	</div>
+      </div>
+      <div class="row">
+    	<div class="col-sm-12">
+    	  <label>WHEN:</label>
+    	  <p><strong>Start Time:</strong> <span id="view_start"></span></p>
+    	  <p><strong>End Time:</strong> <span id="view_end"></span> </p>
+    	</div>
+      </div>
+      <div class="row">
+    	<div class="col-sm-12">
+    	  <label>WHERE:</label>
+    	  <p id="view_location"></p>
+    	</div>
+      </div>
+      <div class="row">
+    	<div class="col-sm-12">
+    	  <label>INVITED GUESTS:</label>
+    	  <p><span ng-bind="event_guests" id="view_guests"></span></p>
+    	</div>
+      </div>
+      <div class="row">
+    	<div class="col-sm-12">
+    	  <label>MESSAGE:</label>
+    	  <p ng-bind="event_message" id="view_message"></p>
+    	</div>
+      </div>
+    </div>
+  </section>
+  <!-- Section Event Form -->
+  <section class="main_content">
+    <div class="container">
+    <h3>Create Event</h3>
+    <p id="errsubmit" class="error-msg" style="text-align: center;"></p>
+      <form action="view_events.html" class="eventform" id="createEventForm">
+      	<div class="row">
+          <div class="col-sm-3">
+            <label for="style_class">Change Design:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+			     <input ng-model="style_class" list="styles" name="style_class" id="style_class" class="form-control" autofocus="autofocus" placeholder="Select style">
+            <datalist id="styles">
+              <option value="bbq"> 
+              <option value="birthday1">
+              <option value="birthday2">
+              <option value="birthday3">
+              <option value="birthday4">
+              <option value="birthday-1year">
+              <option value="bubbles">
+              <option value="flower">
+              <option value="flowers">
+              <option value="hearts">
+              <option value="christmas1">
+              <option value="christmas2">
+              <option value="new_year1">
+              <option value="new_year2">
+              <option value="party">
+              <option value="sun">
+              <option value="summer"> 
+              <option value="sky">
+              <option value="tomato">
+              <option value="pink">
+              <option value="redyellowgreen">
+            </datalist>
+		      </div>
+        </div>  
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="event_title">* Event Title:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+            <div>
+            <input type="text" ng-model="event_title" name="event_title" id="event_title" class="form-control" placeholder="Event Title" required>
+            </div>
+            <p id="errtitle" class="error-msg"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="event_type">* Event Type:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+            <div>
+            <input list="events" ng-model="event_type" name="event_type" id="event_type" class="form-control" autocomplete="off" placeholder="Select or enter" oninput="validEventType()" required>
+            </div>
+            <p id="errtype" class="error-msg"></p>
+            <datalist id="events">
+              <option value="Anniversary" data-id="1">
+              <option value="Baby Shower" data-id="2">
+              <option value="BBQ" data-id="3">
+              <option value="Birthday Party" data-id="4">
+              <option value="Brunch / Lunch" data-id="">
+              <option value="Christmas" data-id="5">
+              <option value="Family Gathering" data-id="6">
+              <option value="Halloween" data-id="7">
+              <option value="Hanukkah" data-id="8">
+              <option value="New Years" data-id="9">
+              <option value="Professional Events" data-id="10">
+              <option value="Thanksgiving" data-id="11">
+              <option value="Valentine's Day" data-id="12">
+              <option value="Weddings" data-id="13">
+            </datalist>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="event_host">* Host:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+            <div>
+            <input type="text" ng-model="event_host" name="event_host" id="event_host" class="form-control" placeholder="Host name" required>
+            </div>
+            <p id="errhost" class="error-msg"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="event_phone">* Phone:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+            <div>
+            <input type="tel" ng-model="event_phone" name="event_phone" id="event_phone" class="form-control" placeholder="+1 777 777 7777" oninput="validPhone(this)" required pattern="\+(?:[0-9] ?){6,14}[0-9]$">
+            </div>
+            <p id="errphone" class="error-msg"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="geocomplete">* Location:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+            <div>
+            <input type="text" id="geocomplete" name="geocomplete" class="form-control" placeholder="Enter a location address" onkeyup="validLocation()" required>
+            </div>
+            <p id="errlocation" class="error-msg"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="event_start">* Start Time:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+            <div class='input-group date' id='datetimepicker7'>
+           	  <input type='text' ng-mouseleave="event_start" name="event_start" id="event_start" class="form-control" onblur="validStartTime()" required>
+           		<span class="input-group-addon">
+           	   	  <span class="glyphicon glyphicon-calendar"></span>
+            	</span>
+        	</div>
+          <p id="errstart" class="error-msg"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="event_end">* End Time:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+        	<div class='input-group date' id='datetimepicker8'>
+           	  <input type='text' ng-model="event_end" name="event_end" id="event_end" class="form-control" onblur="validEndTime()" required>
+           		<span class="input-group-addon">
+           	   	  <span class="glyphicon glyphicon-calendar"></span>
+            	</span>
+        	</div>
+          <p id="errend" class="error-msg"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="event_guests">* Add Guests:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+            <div> 
+            <input type="text" ng-model="event_guests" name="event_guests" id="event_guests" class="form-control" placeholder="Enter names or emails..." required>
+            </div>
+            <p id="errguests" class="error-msg"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <label for="event_message">Message from Host:</label>
+          </div>
+          <div class="col-sm-9 form-group">
+            <div>
+            <textarea ng-model="event_message" name="event_message" id="event_message" class="form-control" rows="8" maxlength="300"></textarea>
+            </div>
+            <p id="errmessage" class="error-msg"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-9 form-group text-left">
+          	<input type="submit" id="submit" class="btn1" value="Create Event">
+          </div>
+      	</div> 
+      </form>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer clear">
+    <div class="mid">
+      <p>Meet-up event planner &#169; 2016</p>
+    </div>  
+  </footer>
+
+<script src="lib/js/jquery-2.1.4.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.0/ui-bootstrap-tpls.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="lib/js/bootstrap-datetimepicker.min.js"></script>
+<script src="lib/js/jquery.geocomplete.js"></script>
+<script src="lib/js/datetime-picker.js"></script>
+<script src="lib/js/jquery.validate.min.js"></script>
+
+<script src="js/location.js"></script>
+<script src="js/create-event.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet-Up Event Planner</title>
+  <!--[if lt IE 9]> 
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> 
+  <![endif]-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/event.css">
+</head>
+<body>
+ <!-- Header --> 
+  <header class="header">
+    <div class="mid-top">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="index.html">Meet-Up Event Planner</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> User Name <i class="fa fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                  <li><a href="account.html">Account</a></li>
+                  <li><a href="events.html">Create Events</a></li>
+                  <li><a href="index.html">Sign Out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- View Events -->
+  <section id="event1">
+    <div class="display_event birthday1">
+      <h1 id="view_title">Alyssa's Birthday!</h1>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>EVENT TYPE:</label>
+        <p>Birthday Party</p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>HOST:</label>
+        <p><span ><small id="view_phone">+1 415 123 1234</small></span> &#160; <span id="view_host">SAMMY</span></p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>WHEN:</label>
+        <p><strong>Start Time:</strong> <span id="start">Sunday, March 20 at 2:00 PM</span></p>
+        <p><strong>End Time:</strong> <span id="end">Sunday, March 20 at 7:00 PM</span> </p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>WHERE:</label>
+        <p>San Francisco, CA, United States</p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>INVITED GUESTS:</label>
+        <p><span>jane@email.com , ann@email.com</span></p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>MESSAGE:</label>
+        <p>Integer eget mauris et urna pulvinar consectetur hendrerit eget mauris. Praesent a interdum justo. Aenean ac diam nec neque fringilla cursus. Donec iaculis tortor in nunc vehicula rutrum. Integer malesuada mollis ligula at varius.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="event2">
+    <div class="display_event flower">
+      <h1 id="view_title">Friends' Summer Party</h1>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>EVENT TYPE:</label>
+        <p>Summer party</p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>HOST:</label>
+        <p><span ><small id="view_phone">+44 7999 123456</small></span> &#160; <span id="view_host">JANE</span></p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>WHEN:</label>
+        <p><strong>Start Time:</strong> <span id="start">Sunday, March 20 at 3:00 PM</span></p>
+        <p><strong>End Time:</strong> <span id="end">Sunday, March 20 at 7:00 PM</span> </p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>WHERE:</label>
+        <p>London, United Kingdom</p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>INVITED GUESTS:</label>
+        <p><span>jane@email.com , ann@email.com</span></p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>MESSAGE:</label>
+        <p>Integer eget mauris et urna pulvinar consectetur hendrerit eget mauris. Praesent a interdum justo. Aenean ac diam nec neque fringilla cursus. Donec iaculis tortor in nunc vehicula rutrum. Integer malesuada mollis ligula at varius.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="event3">
+    <div class="display_event bbq">
+      <h1 id="etitle">Barbecue Party</h1>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>EVENT TYPE:</label>
+        <p>BBQ</p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>HOST:</label>
+        <p><span ><small id="view_phone">+1 415 123 4567</small></span> &#160; <span id="view_host">DAVID</span></p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>WHEN:</label>
+        <p><strong>Start Time:</strong> <span id="start">Sunday, March 20 at 1:00 PM</span></p>
+        <p><strong>End Time:</strong> <span id="end">Sunday, March 20 at 7:00 PM</span> </p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>WHERE:</label>
+        <p>San Francisco, United States</p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>INVITED GUESTS:</label>
+        <p><span>jane@email.com , ann@email.com</span></p>
+      </div>
+      </div>
+      <div class="row">
+      <div class="col-sm-12">
+        <label>MESSAGE:</label>
+        <p>Integer eget mauris et urna pulvinar consectetur hendrerit eget mauris. Praesent a interdum justo. Aenean ac diam nec neque fringilla cursus. Donec iaculis tortor in nunc vehicula rutrum. Integer malesuada mollis ligula at varius.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="mid">
+      <p>Meet-up event planner &#169; 2016</p>
+    </div>  
+  </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="lib/js/jquery-2.1.4.min.js"></script>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("event_title").value;
+    document.getElementById("etitle").innerHTML = x;
+}
+</script>
+
+</body>
+</html>
