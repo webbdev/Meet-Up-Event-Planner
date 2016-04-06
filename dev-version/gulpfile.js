@@ -75,14 +75,12 @@ gulp.task('html:min', function() {
 
 // Watch
 gulp.task('watch', function() {
+	// watch bower.json file
+        gulp.watch('bower.json', ['bower']);
   	// Watch .html files
-  	gulp.watch('./*.html', ['html:min']);
-  	// Watch .css files
-  	gulp.watch('./css/*.css', ['css:build']);
-  	// Watch .js files
-	gulp.watch('./js/*.js', ['js:build']);
+  	gulp.watch('dist/*.html', ['html:min']);
 });
 
 
 // The default task (called when you run 'gulp' from cli)
-gulp.task('default', ['html:min', 'css:build', 'js:build', 'watch']);
+gulp.task('default', ['bower', 'html', 'html:min', 'watch']);
