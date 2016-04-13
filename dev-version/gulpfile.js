@@ -2,7 +2,6 @@ var gulp = require('gulp');
 
 // plugins
 var wiredep = require('wiredep').stream;
-var autoprefixer = require('gulp-autoprefixer');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
