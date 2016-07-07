@@ -2,7 +2,7 @@
 "Meet-Up Event Planner" Project for Udacity Senior Web Developer Nanodegree
 
 ### About
-Responsive web application that allows the user to establish a meet-up event. 
+Responsive web application that allows the user to establish a meet-up event. The application makes use of the latest best practices in developing high conversion web forms, including new input type elements, compound form components, data validation and handling touch input. 
 
 The result of this project you can find at: [Meet-Up Event Planner](http://webbdev.github.io/Meet-Up-Event-Planner/).
 
